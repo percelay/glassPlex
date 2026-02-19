@@ -1,15 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg-base: #0B1120;
-  --color-glass-panel: rgba(255, 255, 255, 0.05);
-  --color-glass-border: rgba(255, 255, 255, 0.1);
-  --color-primary-glow: #38BDF8;
-  --color-text-main: #F8FAFC;
-  --color-text-muted: #94A3B8;
+  --font-heading: "Avenir Next", "Century Gothic", "Segoe UI", sans-serif;
+  --font-body: "Segoe UI", "Helvetica Neue", "Trebuchet MS", sans-serif;
+}
 
-  --font-heading: "Space Grotesk", sans-serif;
-  --font-body: "Inter", sans-serif;
+:root {
+  color-scheme: dark;
 }
 
 * {
@@ -21,24 +18,164 @@ html {
 }
 
 body {
-  background-color: #0B1120;
-  color: #F8FAFC;
-  font-family: "Inter", sans-serif;
+  margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
+  color: #e6f3ff;
+  font-family: var(--font-body);
+  background:
+    radial-gradient(circle at 15% 20%, rgba(142, 219, 255, 0.22) 0%, transparent 40%),
+    radial-gradient(circle at 85% 15%, rgba(70, 167, 255, 0.26) 0%, transparent 38%),
+    radial-gradient(circle at 70% 70%, rgba(107, 217, 255, 0.15) 0%, transparent 42%),
+    linear-gradient(155deg, #020714 0%, #061228 40%, #061934 74%, #041022 100%);
   position: relative;
 }
 
-body::before {
+body::before,
+body::after {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: -1;
-  background:
-    radial-gradient(ellipse 70% 55% at 15% 25%, rgba(56, 189, 248, 0.13) 0%, transparent 70%),
-    radial-gradient(ellipse 55% 65% at 85% 75%, rgba(14, 165, 233, 0.10) 0%, transparent 70%),
-    radial-gradient(ellipse 45% 45% at 50% 5%, rgba(56, 189, 248, 0.07) 0%, transparent 65%),
-    radial-gradient(ellipse 30% 30% at 70% 40%, rgba(99, 210, 255, 0.05) 0%, transparent 60%),
-    #0B1120;
   pointer-events: none;
+}
+
+body::before {
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(200, 240, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 240, 255, 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(circle at center, black 20%, transparent 85%);
+}
+
+body::after {
+  z-index: -2;
+  background:
+    radial-gradient(circle at 50% -20%, rgba(138, 223, 255, 0.18) 0%, transparent 42%),
+    radial-gradient(circle at 110% 95%, rgba(57, 170, 255, 0.16) 0%, transparent 35%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(14px);
+  pointer-events: none;
+}
+
+.orb-a {
+  width: min(46vw, 620px);
+  height: min(46vw, 620px);
+  top: 10vh;
+  right: -10vw;
+  background: radial-gradient(circle at center, rgba(129, 214, 255, 0.32) 0%, rgba(129, 214, 255, 0) 68%);
+  animation: drift-a 16s ease-in-out infinite;
+}
+
+.orb-b {
+  width: min(32vw, 420px);
+  height: min(32vw, 420px);
+  left: -8vw;
+  top: 42vh;
+  background: radial-gradient(circle at center, rgba(96, 196, 255, 0.3) 0%, rgba(96, 196, 255, 0) 72%);
+  animation: drift-b 18s ease-in-out infinite;
+}
+
+.glass-panel {
+  background: linear-gradient(140deg, rgba(196, 238, 255, 0.18) 0%, rgba(180, 228, 255, 0.08) 44%, rgba(16, 42, 76, 0.22) 100%);
+  border: 1px solid rgba(197, 232, 255, 0.34);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.45),
+    0 30px 70px rgba(4, 12, 28, 0.45);
+}
+
+.glass-soft {
+  background: linear-gradient(145deg, rgba(185, 232, 255, 0.14) 0%, rgba(121, 203, 255, 0.08) 100%);
+  border: 1px solid rgba(184, 229, 255, 0.24);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.glass-pill {
+  background: linear-gradient(135deg, rgba(158, 218, 255, 0.25) 0%, rgba(123, 192, 255, 0.12) 100%);
+  border: 1px solid rgba(160, 220, 255, 0.45);
+}
+
+.ice-btn-primary {
+  background: linear-gradient(135deg, rgba(159, 226, 255, 0.34) 0%, rgba(88, 190, 255, 0.27) 62%, rgba(83, 171, 255, 0.3) 100%);
+  border: 1px solid rgba(186, 233, 255, 0.72);
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.42),
+    0 16px 40px rgba(57, 150, 255, 0.35);
+}
+
+.ice-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.55),
+    0 18px 44px rgba(57, 150, 255, 0.45);
+}
+
+.ice-btn-secondary {
+  border: 1px solid rgba(186, 230, 255, 0.38);
+  background: rgba(160, 221, 255, 0.09);
+}
+
+.ice-btn-secondary:hover {
+  background: rgba(160, 221, 255, 0.16);
+}
+
+.section-kicker {
+  color: #99dcff;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: #eff9ff;
+}
+
+.section-copy {
+  color: rgba(227, 241, 255, 0.84);
+}
+
+.frost-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(152, 216, 255, 0.6) 50%, transparent 100%);
+}
+
+@keyframes drift-a {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-20px, 20px, 0);
+  }
+}
+
+@keyframes drift-b {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(28px, -14px, 0);
+  }
 }

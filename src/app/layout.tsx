@@ -1,24 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
-  title: "Glasplex Plastics LLC | Custom Plastic Fabrication",
+  title: "GlasPlex Plastics | Precision Plastic Fabrication",
   description:
-    "Full-service plastic fabrication: Acrylic, Lexan, Polycarbonate, HDPE & more. B2B & public sales, custom cuts, nationwide shipping. Sussex, NJ.",
+    "Commercial-grade plastic fabrication and sheet supply from Sussex, NJ. Fast-turn custom cuts, precision machining, and nationwide logistics.",
 };
 
 export default function RootLayout({
@@ -27,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en">
       <body className="antialiased">{children}</body>
     </html>
   );

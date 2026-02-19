@@ -1,88 +1,111 @@
-import { ArrowRight, ChevronDown, Shield, Truck, Users } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  Clock3,
+  ShieldCheck,
+  Sparkles,
+  Truck,
+} from "lucide-react";
 
-const stats = [
-  { icon: Users, label: "B2B & Public Sales", value: "Both" },
-  { icon: Truck, label: "Nationwide Shipping", value: "Available" },
-  { icon: Shield, label: "Trusted Clients", value: "QVC & News 12 NJ" },
+const trustPoints = [
+  "Commercial + public fulfillment",
+  "Fabrication, machining, and assembly in one facility",
+  "Nationwide delivery and local pickup coordination",
+];
+
+const metricCards = [
+  { label: "Response Window", value: "< 1 Business Day", icon: Clock3 },
+  { label: "Coverage", value: "All 50 States", icon: Truck },
+  { label: "Quality Standard", value: "Inspection-Driven", icon: ShieldCheck },
 ];
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 pt-20">
-      {/* Decorative blurred blobs */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 overflow-hidden"
-      >
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-[#38BDF8]/8 blur-[120px]" />
-        <div className="absolute bottom-1/3 left-1/4 w-[300px] h-[300px] rounded-full bg-[#0EA5E9]/6 blur-[100px]" />
-      </div>
+    <section className="relative px-4 pb-16 pt-32 sm:px-6 sm:pt-36 lg:px-8 lg:pb-24">
+      <div className="mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10">
+        <div className="glass-panel relative overflow-hidden rounded-[2rem] p-8 sm:p-10 lg:p-12">
+          <div
+            className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full"
+            style={{
+              background:
+                "radial-gradient(circle at center, rgba(179,233,255,0.48) 0%, rgba(179,233,255,0) 70%)",
+            }}
+            aria-hidden="true"
+          />
 
-      {/* Hero Glass Card */}
-      <div className="relative z-10 w-full max-w-5xl mx-auto">
-        <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl shadow-[0_4px_60px_rgba(0,0,0,0.3)] p-8 sm:p-12 lg:p-16 text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#38BDF8]/10 border border-[#38BDF8]/25 text-[#38BDF8] text-sm font-medium mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8] animate-pulse" />
-            Full-Service Plastic Fabrication Facility
+          <div className="glass-pill inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-[#d8f2ff]">
+            <Sparkles className="h-3.5 w-3.5" />
+            End-to-End Plastic Manufacturing
           </div>
 
-          {/* Headline */}
-          <h1
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-white mb-6"
-            style={{ fontFamily: "var(--font-space-grotesk, sans-serif)" }}
-          >
-            Our Goal is to Serve{" "}
-            <span className="text-[#38BDF8]">YOUR PLASTIC NEEDS!</span>
+          <h1 className="section-title mt-6 text-4xl sm:text-5xl lg:text-6xl">
+            High-Performance Plastic Fabrication for Serious Projects.
           </h1>
 
-          {/* Sub */}
-          <p className="text-lg sm:text-xl text-[#94A3B8] max-w-2xl mx-auto mb-10 leading-relaxed">
-            B2B &amp; Public Sales &nbsp;|&nbsp; Custom Fabrication &nbsp;|&nbsp; Nationwide Shipping.
-            <br />
-            <span className="text-white/70 font-medium">Trusted by QVC &amp; News 12 NJ.</span>
+          <p className="section-copy mt-6 max-w-2xl text-base leading-relaxed sm:text-lg">
+            GlasPlex Plastics delivers precision-cut sheets, fabrication, and engineered
+            components for commercial, industrial, healthcare, and public-sector teams.
+            Built in Sussex, New Jersey. Delivered nationwide.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
               href="#contact"
-              className="flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-white bg-[#38BDF8]/20 border border-[#38BDF8]/40 hover:bg-[#38BDF8]/30 hover:border-[#38BDF8]/70 shadow-[0_0_25px_rgba(56,189,248,0.15)] hover:shadow-[0_0_40px_rgba(56,189,248,0.25)] transition-all duration-300"
+              className="ice-btn-primary inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold text-white transition-all"
             >
-              Get a Quote <ArrowRight className="w-4 h-4" />
+              Start Your Quote
+              <ArrowRight className="h-4 w-4" />
             </a>
             <a
               href="#capabilities"
-              className="flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-[#94A3B8] bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 hover:text-white transition-all duration-300"
+              className="ice-btn-secondary inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-semibold text-[#def2ff] transition-all"
             >
-              Our Capabilities
+              Explore Capabilities
             </a>
           </div>
 
-          {/* Stats Row */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {stats.map(({ icon: Icon, label, value }) => (
-              <div
-                key={label}
-                className="flex items-center gap-3 px-5 py-3.5 rounded-xl bg-white/3 border border-white/8 hover:bg-white/6 hover:border-white/15 transition-all duration-200"
-              >
-                <div className="w-8 h-8 rounded-lg bg-[#38BDF8]/10 border border-[#38BDF8]/20 flex items-center justify-center flex-shrink-0">
-                  <Icon className="w-4 h-4 text-[#38BDF8]" />
-                </div>
-                <div className="text-left">
-                  <p className="text-xs text-[#94A3B8]">{label}</p>
-                  <p className="text-sm font-semibold text-white">{value}</p>
-                </div>
-              </div>
+          <ul className="mt-8 grid gap-2.5 sm:grid-cols-2">
+            {trustPoints.map((point) => (
+              <li key={point} className="flex items-start gap-2 text-sm text-[#d6e9f7]">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#9fdcff]" />
+                <span>{point}</span>
+              </li>
             ))}
+          </ul>
+        </div>
+
+        <div className="space-y-4">
+          <div className="glass-panel rounded-3xl p-6 sm:p-8">
+            <p className="section-kicker">Operational Snapshot</p>
+            <div className="mt-5 space-y-3">
+              {metricCards.map(({ label, value, icon: Icon }) => (
+                <div key={label} className="glass-soft flex items-center gap-3 rounded-2xl p-4">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#9ddcff]/18 text-[#bcecff]">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.14em] text-[#9dc5df]">{label}</p>
+                    <p className="font-[var(--font-heading)] text-sm font-semibold text-[#edf8ff]">
+                      {value}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="glass-soft rounded-3xl p-6">
+            <p className="section-kicker">Trusted Clients</p>
+            <p className="mt-3 text-sm leading-relaxed text-[#d6e9f7]">
+              Featured by regional media and selected by repeat B2B buyers who need
+              dependable tolerances, clean finishing, and accountable delivery.
+            </p>
+            <div className="mt-4 frost-divider" />
+            <p className="mt-4 text-xs uppercase tracking-[0.18em] text-[#9dc5df]">
+              QVC | News 12 NJ | Regional Fabrication Partners
+            </p>
           </div>
         </div>
-      </div>
-
-      {/* Scroll cue */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-50">
-        <span className="text-xs text-[#94A3B8] tracking-widest uppercase">Scroll</span>
-        <ChevronDown className="w-4 h-4 text-[#94A3B8] animate-bounce" />
       </div>
     </section>
   );

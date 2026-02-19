@@ -1,77 +1,90 @@
 import {
-  Settings2,
-  Flame,
-  Drill,
-  Shapes,
+  Brush,
   Cog,
-  Waves,
-  Sparkles,
-  Cpu,
-  FlaskConical,
+  Drill,
+  Gauge,
+  Layers,
   Route,
-  Wind,
+  Sparkles,
+  Waves,
   Wrench,
 } from "lucide-react";
 
-const capabilities = [
-  { icon: Shapes, label: "Assemblies" },
-  { icon: Flame, label: "Bending" },
+const capabilityGroups = [
+  {
+    title: "Fabrication + Forming",
+    description:
+      "Thermal bending, precision forming, routed profiles, and structural assemblies for production-ready parts.",
+    icon: Wrench,
+  },
+  {
+    title: "Machining + Finishing",
+    description:
+      "Drilling, milling, polishing, and edge refinement that keeps dimensional intent and visual quality aligned.",
+    icon: Gauge,
+  },
+  {
+    title: "Specialty Processes",
+    description:
+      "Plastic welding, sanding, and tailored custom operations for unique functional environments.",
+    icon: Sparkles,
+  },
+];
+
+const serviceList = [
+  { icon: Layers, label: "Assemblies" },
   { icon: Drill, label: "Drilling" },
-  { icon: Settings2, label: "Forming" },
   { icon: Cog, label: "Milling" },
   { icon: Waves, label: "Plastic Welding" },
-  { icon: Sparkles, label: "Polishing" },
-  { icon: Cpu, label: "Precision Machining" },
-  { icon: FlaskConical, label: "Prototyping" },
+  { icon: Brush, label: "Polishing" },
   { icon: Route, label: "Routing" },
-  { icon: Wind, label: "Sandblasting" },
-  { icon: Wrench, label: "Custom Fab" },
 ];
 
 export default function Capabilities() {
   return (
-    <section id="capabilities" className="relative py-24 px-4 sm:px-6">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Label */}
-        <div className="flex items-center gap-3 mb-6">
-          <span className="h-px flex-1 max-w-[3rem] bg-[#38BDF8]/40" />
-          <span className="text-xs font-semibold tracking-[0.2em] uppercase text-[#38BDF8]">
-            What We Do
-          </span>
-        </div>
-
-        <div className="mb-12">
-          <h2
-            className="text-3xl sm:text-4xl font-bold text-white mb-4"
-            style={{ fontFamily: "var(--font-space-grotesk, sans-serif)" }}
-          >
-            Manufacturing{" "}
-            <span className="text-[#38BDF8]">Capabilities</span>
+    <section id="capabilities" className="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-8 max-w-3xl">
+          <p className="section-kicker">Capabilities</p>
+          <h2 className="section-title mt-3 text-3xl sm:text-4xl">
+            Multi-Process Execution from Prototype to Production.
           </h2>
-          <p className="text-[#94A3B8] max-w-xl">
-            From rapid prototypes to full production runs — our facility handles every
-            stage of plastic fabrication with precision.
+          <p className="section-copy mt-4 text-base leading-relaxed">
+            Our facility is designed to move projects from concept to finished component
+            with predictable quality. Teams rely on us for fast decision cycles,
+            fabrication depth, and practical manufacturability guidance.
           </p>
         </div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-          {capabilities.map(({ icon: Icon, label }) => (
-            <div
-              key={label}
-              className="group backdrop-blur-md bg-white/5 border border-white/10 rounded-xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] p-5 flex flex-col items-start gap-3 hover:bg-white/10 hover:border-[#38BDF8]/30 hover:shadow-[0_4px_30px_rgba(56,189,248,0.08)] transition-all duration-300"
-            >
-              <div className="w-10 h-10 rounded-xl bg-[#38BDF8]/10 border border-[#38BDF8]/20 flex items-center justify-center group-hover:bg-[#38BDF8]/20 group-hover:border-[#38BDF8]/40 transition-all duration-300">
-                <Icon className="w-5 h-5 text-[#38BDF8]" />
+        <div className="grid gap-4 lg:grid-cols-3">
+          {capabilityGroups.map(({ title, description, icon: Icon }) => (
+            <article key={title} className="glass-panel rounded-3xl p-6 sm:p-7">
+              <div className="glass-soft inline-flex h-11 w-11 items-center justify-center rounded-xl">
+                <Icon className="h-5 w-5 text-[#c2ecff]" />
               </div>
-              <span
-                className="text-sm font-semibold text-white leading-tight"
-                style={{ fontFamily: "var(--font-space-grotesk, sans-serif)" }}
-              >
-                {label}
-              </span>
-            </div>
+              <h3 className="mt-4 font-[var(--font-heading)] text-xl font-semibold text-[#f2f9ff]">
+                {title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-[#d9ebf8]">{description}</p>
+            </article>
           ))}
+        </div>
+
+        <div className="glass-soft mt-5 rounded-3xl p-6 sm:p-7">
+          <p className="text-xs uppercase tracking-[0.18em] text-[#9cc7e1]">
+            Core Operations
+          </p>
+          <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+            {serviceList.map(({ icon: Icon, label }) => (
+              <div
+                key={label}
+                className="rounded-2xl border border-[#afe3ff]/24 bg-[#a9e0ff]/10 px-3 py-3 text-center"
+              >
+                <Icon className="mx-auto h-4 w-4 text-[#b7e9ff]" />
+                <p className="mt-2 text-xs font-medium text-[#e2f3ff]">{label}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

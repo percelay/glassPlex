@@ -1,84 +1,80 @@
-import { Award, Building2, FlaskConical, Package } from "lucide-react";
+import { Award, Compass, Factory, Layers3, Users2 } from "lucide-react";
 
-const highlights = [
+const pillars = [
   {
-    icon: Building2,
-    title: "Full Fabrication Facility",
-    desc: "End-to-end plastic manufacturing under one roof in Sussex, NJ.",
+    icon: Factory,
+    title: "Single-Site Control",
+    desc: "Design support, fabrication, machining, finishing, and packing are managed inside one coordinated workflow.",
   },
   {
-    icon: FlaskConical,
-    title: "Materials Expertise",
-    desc: "Acrylic, Lexan, Polycarbonate, HDPE, PETG, ABS & expanded PVC foam board.",
+    icon: Layers3,
+    title: "Material Depth",
+    desc: "Acrylic, polycarbonate, Lexan, HDPE, PETG, ABS, and expanded PVC stocked for fast project starts.",
   },
   {
-    icon: Package,
-    title: "Custom Dimensions",
-    desc: "Standard, custom-cut, and oversized sheets from 1/16\" to 1.25\"+.",
+    icon: Users2,
+    title: "Commercial Reliability",
+    desc: "Repeatable outcomes for contractors, operations teams, display builders, and institutional buyers.",
   },
   {
     icon: Award,
-    title: "Trusted Since Day One",
-    desc: "Featured by QVC & News 12 NJ. B2B partnerships and public walk-in sales.",
+    title: "Built on Reputation",
+    desc: "Longstanding relationships across New Jersey, New York, and Pennsylvania with nationwide fulfillment.",
   },
 ];
 
 export default function About() {
   return (
-    <section id="about" className="relative py-24 px-4 sm:px-6">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Label */}
-        <div className="flex items-center gap-3 mb-6">
-          <span className="h-px flex-1 max-w-[3rem] bg-[#38BDF8]/40" />
-          <span className="text-xs font-semibold tracking-[0.2em] uppercase text-[#38BDF8]">
-            Who We Are
-          </span>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Left: Text */}
-          <div>
-            <h2
-              className="text-3xl sm:text-4xl font-bold text-white leading-tight mb-6"
-              style={{ fontFamily: "var(--font-space-grotesk, sans-serif)" }}
-            >
-              Precision Plastics,{" "}
-              <span className="text-[#38BDF8]">Built for Your Needs</span>
+    <section id="about" className="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid gap-6 lg:grid-cols-[1fr_1.1fr] lg:gap-8">
+          <div className="glass-soft rounded-3xl p-7 sm:p-9">
+            <p className="section-kicker">Company</p>
+            <h2 className="section-title mt-4 text-3xl sm:text-4xl">
+              Engineering-Grade Plastics with Service Built for Business.
             </h2>
-            <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] p-6 sm:p-8">
-              <p className="text-[#94A3B8] text-base leading-relaxed">
-                Glasplex Plastics LLC operates a full plastic fabrication facility
-                specializing in Acrylic, Lexan, Polycarbonate, and various Industrial
-                Plastic Sheets. We provide custom fabrication and sales of plastic sheets
-                in standard, custom-cut, and oversized dimensions.
-              </p>
-              <div className="mt-6 pt-6 border-t border-white/8">
-                <p className="text-sm text-[#94A3B8]">
-                  Serving New Jersey, New York, Pennsylvania, and nationwide with
-                  reliable shipping solutions tailored to your project requirements.
+            <p className="section-copy mt-5 text-base leading-relaxed">
+              GlasPlex Plastics LLC is a full-service fabrication facility in Sussex,
+              New Jersey. We support both high-volume buyers and one-off custom orders
+              with disciplined process control, material expertise, and practical lead times.
+            </p>
+
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              <div className="glass-panel rounded-2xl p-4">
+                <p className="text-xs uppercase tracking-[0.14em] text-[#9ec8e2]">
+                  Primary Service Area
+                </p>
+                <p className="mt-1 font-[var(--font-heading)] text-sm font-semibold text-[#ebf7ff]">
+                  NJ, NY, PA + National Shipping
+                </p>
+              </div>
+              <div className="glass-panel rounded-2xl p-4">
+                <p className="text-xs uppercase tracking-[0.14em] text-[#9ec8e2]">
+                  Facility Model
+                </p>
+                <p className="mt-1 font-[var(--font-heading)] text-sm font-semibold text-[#ebf7ff]">
+                  Build-to-Spec + Stock Supply
                 </p>
               </div>
             </div>
+
+            <div className="mt-6 flex items-center gap-3 rounded-2xl border border-[#8fd3ff]/30 bg-[#8fd3ff]/10 px-4 py-3 text-sm text-[#d7ecfa]">
+              <Compass className="h-4 w-4 text-[#afe4ff]" />
+              Strategic fabrication partner for production teams that cannot miss.
+            </div>
           </div>
 
-          {/* Right: Highlight Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {highlights.map(({ icon: Icon, title, desc }) => (
-              <div
-                key={title}
-                className="backdrop-blur-md bg-white/5 border border-white/10 rounded-xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] p-5 hover:bg-white/10 hover:border-[#38BDF8]/25 transition-all duration-300 group"
-              >
-                <div className="w-10 h-10 rounded-xl bg-[#38BDF8]/10 border border-[#38BDF8]/20 flex items-center justify-center mb-4 group-hover:bg-[#38BDF8]/15 group-hover:border-[#38BDF8]/35 transition-all duration-300">
-                  <Icon className="w-5 h-5 text-[#38BDF8]" />
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {pillars.map(({ icon: Icon, title, desc }) => (
+              <article key={title} className="glass-panel rounded-3xl p-6">
+                <div className="glass-soft inline-flex h-11 w-11 items-center justify-center rounded-xl">
+                  <Icon className="h-5 w-5 text-[#bde9ff]" />
                 </div>
-                <h3
-                  className="text-sm font-semibold text-white mb-1.5"
-                  style={{ fontFamily: "var(--font-space-grotesk, sans-serif)" }}
-                >
+                <h3 className="mt-4 font-[var(--font-heading)] text-lg font-semibold text-[#eff8ff]">
                   {title}
                 </h3>
-                <p className="text-xs text-[#94A3B8] leading-relaxed">{desc}</p>
-              </div>
+                <p className="mt-2 text-sm leading-relaxed text-[#d7eaf8]">{desc}</p>
+              </article>
             ))}
           </div>
         </div>
